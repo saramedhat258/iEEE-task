@@ -43,13 +43,13 @@ function App() {
             {/* task */}
             {tasks.map(task => {
               return (
-                <section key={task.id} className={`flex justify-between px-5 py-2 m-2 bg-pink-100 rounded  ${task.checked ? ' text-gray-600 bg-green-200' : ''}`}>
+                <section key={task.id} className={`flex justify-between px-5 py-2 m-2 rounded  ${task.checked ? ' text-gray-600 bg-green-200' : 'bg-pink-100'}`}>
                   <section className={`flex gap-2 ${task.checked?"line-through":""}`}>
                     <input type="checkbox" checked={task.checked} onChange={() => togglecheck(task.id)} />
                     <p>{task.text}</p>
                   </section>
                   {task.checked?
-                  <p className=" text-green-600 font-medium">done</p>
+                  <p className=" text-green-600 font-medium bg-green-">done</p>
                   :<p className="text-xl text-pink-400 font-bold cursor-pointer" onClick={() => deletetask(task.id)}>x</p>
                 }
                 </section>
