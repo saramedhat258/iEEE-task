@@ -1,0 +1,36 @@
+debouncing:
+is a technique used to control the execution rate of function When a specific event occur repeatedly quickly, it is useful to optimize the performance of frequent events like typing and scrolling by reduce unwanted function calls, this prevents delays
+
+example: when you search for a product in text box the data is fetched from api every time you write a new char
+
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+
+export default function App() {
+const [data, setdata] = useState("");
+
+useEffect(() => {
+const getData = setTimeout(() => {
+if (pinCode) {
+axios
+.get(`https://fakestoreapi.com/products`)
+.then((response) => {
+console.log(response.data);
+});
+}
+}, 2000);
+
+return () => clearTimeout(getData);
+}, [data]);
+
+return (
+<div className="app">
+<input
+placeholder="Search Input.."
+onChange={(e) => setdata(e.target.value)}
+/>
+</div>
+);
+}
+
+when user stop typing api call is delayed 2 sec before fetching data

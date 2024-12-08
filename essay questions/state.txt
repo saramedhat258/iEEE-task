@@ -1,0 +1,24 @@
+it is depend on state type
+
+#single value
+ const [str,setStr]=usestate("sara")
+ setStr("medhat")
+ the initial value of state "sara" is replaced by value "medhat"
+
+#array
+ const [arr,setArr]=usestate([9])
+ const add = new => {
+    setItems(prev => [...prev, new])
+  };
+ add(10)
+
+#object
+const [user,setuser]=useState({name:"Sara",age: 21});
+
+  const addjob = () => {
+    setuser((prev) => ({
+      ...prev,
+      job: "Developer",
+    }));
+  };
+ 
